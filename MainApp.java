@@ -18,7 +18,7 @@ public class MainApp {
             System.out.print("Enter password: ");
             String pwd = sc.nextLine();
             User user = auth.login(uname, pwd);
-            System.out.println("\n✅ Welcome, " + user.getUsername() + " (" + user.getRole() + ")");
+            System.out.println("\n✅ Welcome, " + user.getName() + " (" + user.getRole() + ")");
             switch (user.getRole()) {
             case "ADMIN" -> Dashboard.adminMenu((Admin) user);
             case "STUDENT" -> Dashboard.studentMenu((Student) user);
