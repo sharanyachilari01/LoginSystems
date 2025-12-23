@@ -3,8 +3,8 @@ package com.models;
 public class TeachingStaff extends User {
     private String department;
 
-    public TeachingStaff(String username, String email, String role, String department) {
-        super(username, email, role);
+    public TeachingStaff(String username, String email, String password,String role, String department) {
+    	super(username, email, password, role);
         this.department = department;
     }
 
@@ -12,7 +12,6 @@ public class TeachingStaff extends User {
         return department;
     }
 
-    @Override
     public void showMenu() {
         System.out.println("Teaching Staff Menu Loaded.");
     }
