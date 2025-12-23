@@ -1,8 +1,10 @@
 package com.models;
 
 public class HOD extends TeachingStaff {
-    public HOD(String username, String email, String role, String department) {
-        super(username, email, role, department);
+    public HOD(String username, String email, String password,
+            String role, String department) {
+
+     super(username, email, password, role, department); 
     }
 
     @Override
