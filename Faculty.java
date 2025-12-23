@@ -8,8 +8,10 @@ import java.sql.SQLException;
 public class Faculty extends User {
     protected String department;
 
-    public Faculty(String username, String password, String role, String department) {
-        super(username, password, role);
+    public Faculty(String username, String email, String password,
+            String role, String department) {
+
+super(username, email, password, role); 
         this.department = department;
     }
 
@@ -37,7 +39,6 @@ public class Faculty extends User {
         }
     }
 
-    @Override
     public void showMenu() {
         System.out.println("=== FACULTY DASHBOARD ===");
         System.out.println("1. View Attendance");
