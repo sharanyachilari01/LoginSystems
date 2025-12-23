@@ -13,4 +13,3 @@ public class TestHash {
     System.out.println("SHA-256(Welcome@123) = " + sb);
   }
 }
-
