@@ -1,38 +1,38 @@
-package com.models;
 
-public abstract class User {
-    protected String username;
-    protected String email;
+package com.models;
+public class User {
+
+    protected int id;
+    protected String name;
+    protected String email;        // ✅ MUST exist
+    protected String password;
     protected String role;
 
-    public User(String username, String email, String role) {
-        this.username = username;
+    public User(int id, String name, String email, String password, String role) {
+        this.id = id;
+        this.name = name;
         this.email = email;
+        this.password = password;
         this.role = role;
     }
 
-    // Getters
-    public String getUsername() {
-        return username;
+    public User(String name, String email, String password, String role) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.role = role;
     }
 
-    public String getEmail() {
-        return email;
-    }
+    // ✅ GETTERS
+    public int getId() { return id; }
+    public String getName() { return name; }
+    public String getEmail() { return email; }
+    public String getPassword() { return password; }
+    public String getRole() { return role; }
 
-    public String getRole() {
-        return role;
-    }
-
-    // Setters (optional, only if you plan to change values later)
+    // ✅ SETTERS
     public void setEmail(String email) {
         this.email = email;
     }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    // Abstract method for showing role-specific menus (optional)
-    public abstract void showMenu();
 }
+
