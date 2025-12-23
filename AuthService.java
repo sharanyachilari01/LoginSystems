@@ -90,13 +90,26 @@ public class AuthService {
             String dept = rs.getString("department");
 
             return switch (role) {
-                case "ADMIN" -> new Admin(username, email, role);
-                case "STUDENT" -> new Student(username, email);
-                case "HOD" -> new HOD(username, email, role, dept);
-                case "TEACHING_STAFF" -> new TeachingStaff(username, email, role, dept);
-                case "NON_TEACHING" -> new NonTeachingStaff(username, email, role, dept);
-                default -> throw new InvalidInputException("Unknown role: " + role);
-            };
+
+            case "ADMIN" ->
+                new Admin(username, email, dbPassword, role);
+
+            case "STUDENT" ->
+                new Student(username, email, dbPassword, role);
+
+            case "HOD" ->
+                new HOD(username, email, dbPassword, role, dept);
+
+            case "TEACHING_STAFF" ->
+                new TeachingStaff(username, email, dbPassword, role, dept);
+
+            case "NON_TEACHING" ->
+                new NonTeachingStaff(username, email, dbPassword, role, dept);
+
+            default ->
+                throw new InvalidInputException("Unknown role: " + role);
+        };
+
 
         } catch (SQLException e) {
             throw new DatabaseConnectionException("SQL Error: " + e.getMessage());
