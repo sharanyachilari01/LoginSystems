@@ -35,7 +35,7 @@ public class Dashboard {
                 case 4 -> viewSystemLogs();
                 case 5 -> addUser(sc, admin);
                 case 6 -> deleteUser(sc, admin);
-                case 7 -> changePassword(admin.getUsername(), admin.getEmail());
+                case 7 -> changePassword(admin.getName(), admin.getEmail());
                 case 0 -> System.out.println("Logging out...");
                 default -> System.out.println("❌ Invalid choice!");
             }
@@ -67,23 +67,23 @@ public class Dashboard {
                 case 1 -> {
                     System.out.print("Enter Student Username: ");
                     String stu = sc.nextLine();
-                    FacultyService.markAttendance(stu, f.getUsername());
+                    FacultyService.markAttendance(stu, f.getName());
                 }
-                case 2 -> FacultyService.viewAttendance(f.getUsername());
-                case 3 -> viewPublications(f.getUsername());
+                case 2 -> FacultyService.viewAttendance(f.getName());
+                case 3 -> viewPublications(f.getName());
                 case 4 -> {
                     System.out.print("Enter Publication Title: ");
                     String title = sc.nextLine();
                     System.out.print("Enter Journal Name: ");
                     String journal = sc.nextLine();
-                    FacultyService.addPublication(f.getUsername(), title, journal, 2025);
+                    FacultyService.addPublication(f.getName(), title, journal, 2025);
                 }
                 case 5 -> {
                     System.out.print("Enter Publication Title to Delete: ");
                     String title = sc.nextLine();
-                    FacultyService.deletePublication(f.getUsername(), title);
+                    FacultyService.deletePublication(f.getName(), title);
                 }
-                case 6 -> approveOrRejectProjects(sc, f.getUsername());
+                case 6 -> approveOrRejectProjects(sc, f.getName());
                 case 7 -> {
                     System.out.print("Enter Student Username: ");
                     String stu = sc.nextLine();
@@ -95,9 +95,9 @@ public class Dashboard {
                 case 8 -> {
                     System.out.print("Enter Reason for Leave: ");
                     String reason = sc.nextLine();
-                    FacultyService.applyLeave(f.getUsername(), reason);
+                    FacultyService.applyLeave(f.getName(), reason);
                 }
-                case 9 -> changePassword(f.getUsername(), f.getEmail());
+                case 9 -> changePassword(f.getName(), f.getEmail());
                 case 0 -> System.out.println("Logging out...");
                 default -> System.out.println("❌ Invalid choice!");
             }
@@ -130,23 +130,23 @@ public class Dashboard {
                 case 1 -> {
                     System.out.print("Enter Student Username: ");
                     String stu = sc.nextLine();
-                    FacultyService.markAttendance(stu, hod.getUsername());
+                    FacultyService.markAttendance(stu, hod.getName());
                 }
-                case 2 -> FacultyService.viewAttendance(hod.getUsername());
-                case 3 -> viewPublications(hod.getUsername());
+                case 2 -> FacultyService.viewAttendance(hod.getName());
+                case 3 -> viewPublications(hod.getName());
                 case 4 -> {
                     System.out.print("Enter Publication Title: ");
                     String title = sc.nextLine();
                     System.out.print("Enter Journal Name: ");
                     String journal = sc.nextLine();
-                    FacultyService.addPublication(hod.getUsername(), title, journal, 2025);
+                    FacultyService.addPublication(hod.getName(), title, journal, 2025);
                 }
                 case 5 -> {
                     System.out.print("Enter Publication Title to Delete: ");
                     String title = sc.nextLine();
-                    FacultyService.deletePublication(hod.getUsername(), title);
+                    FacultyService.deletePublication(hod.getName(), title);
                 }
-                case 6 -> approveOrRejectProjects(sc, hod.getUsername());
+                case 6 -> approveOrRejectProjects(sc, hod.getName());
                 case 7 -> {
                     System.out.print("Enter Student Username: ");
                     String stu = sc.nextLine();
@@ -158,7 +158,7 @@ public class Dashboard {
                 case 8 -> {
                     System.out.print("Enter Reason for Leave: ");
                     String reason = sc.nextLine();
-                    FacultyService.applyLeave(hod.getUsername(), reason);
+                    FacultyService.applyLeave(hod.getName(), reason);
                 }
                 case 9 -> {
                     FacultyService.viewPendingLeaves();
@@ -169,7 +169,7 @@ public class Dashboard {
                     boolean approve = sc.nextLine().equalsIgnoreCase("Y");
                     FacultyService.approveOrRejectLeave(leaveId, approve);
                 }
-                case 10 -> changePassword(hod.getUsername(), hod.getEmail());
+                case 10 -> changePassword(hod.getName(), hod.getEmail());
                 case 0 -> System.out.println("Logging out...");
                 default -> System.out.println("❌ Invalid choice!");
             }
@@ -196,15 +196,15 @@ public class Dashboard {
                 case 1 -> {
                     System.out.print("Enter Student Username: ");
                     String stu = sc.nextLine();
-                    FacultyService.markAttendance(stu, nt.getUsername());
+                    FacultyService.markAttendance(stu, nt.getName());
                 }
-                case 2 -> FacultyService.viewAttendance(nt.getUsername());
+                case 2 -> FacultyService.viewAttendance(nt.getName());
                 case 3 -> {
                     System.out.print("Enter Reason for Leave: ");
                     String reason = sc.nextLine();
-                    FacultyService.applyLeave(nt.getUsername(), reason);
+                    FacultyService.applyLeave(nt.getName(), reason);
                 }
-                case 4 -> changePassword(nt.getUsername(), nt.getEmail());
+                case 4 -> changePassword(nt.getName(), nt.getEmail());
                 case 0 -> System.out.println("Logging out...");
                 default -> System.out.println("❌ Invalid choice!");
             }
@@ -228,10 +228,10 @@ public class Dashboard {
             sc.nextLine();
 
             switch (choice) {
-                case 1 -> viewProfile(s.getUsername());
-                case 2 -> checkGrades(s.getUsername());
-                case 3 -> applyForProjectGuide(sc, s.getUsername());
-                case 4 -> changePassword(s.getUsername(), s.getEmail());
+                case 1 -> viewProfile(s.getName());
+                case 2 -> checkGrades(s.getName());
+                case 3 -> applyForProjectGuide(sc, s.getName());
+                case 4 -> changePassword(s.getName(), s.getEmail());
                 case 0 -> System.out.println("Logging out...");
                 default -> System.out.println("❌ Invalid choice!");
             }
@@ -252,7 +252,7 @@ public class Dashboard {
         String role = sc.nextLine().toUpperCase();
         System.out.print("Enter Department (if applicable, else leave blank): ");
         String dept = sc.nextLine();
-        UserService.addUser(username, password, role, dept);
+          UserService.addUser(username, email, password,role, dept); 
     }
 
     // Delete User
