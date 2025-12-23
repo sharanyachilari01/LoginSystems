@@ -6,4 +6,3 @@ public class DatabaseConnectionException extends Exception {
      super(message);
  }
 }
-
